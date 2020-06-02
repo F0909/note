@@ -7,72 +7,72 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="注册"
-        android:textSize="38sp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"/>
+        android:text="注册"
+        android:textSize="38sp" />
 
 
     <EditText
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="请输入用户名："
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
-        android:paddingLeft="10dp"
-        android:background="#DBDBDB"/>
+        android:layout_marginRight="30dp"
+        android:background="#DBDBDB"
+        android:hint="请输入用户名："
+        android:paddingLeft="10dp" />
 
     <EditText
         android:id="@+id/et_pass1"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="请输入密码："
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="15dp"
-        android:paddingLeft="10dp"
-        android:background="#DBDBDB"/>
+        android:layout_marginRight="30dp"
+        android:background="#DBDBDB"
+        android:hint="请输入密码："
+        android:paddingLeft="10dp" />
 
     <EditText
         android:id="@+id/et_tel1"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="请输入电话号码："
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="15dp"
-        android:paddingLeft="10dp"
-        android:background="#DBDBDB"/>
+        android:layout_marginRight="30dp"
+        android:background="#DBDBDB"
+        android:hint="请输入电话号码："
+        android:paddingLeft="10dp" />
 
     <EditText
         android:id="@+id/et_qq"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="请输入QQ："
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="15dp"
-        android:paddingLeft="10dp"
-        android:background="#DBDBDB"/>
+        android:layout_marginRight="30dp"
+        android:background="#DBDBDB"
+        android:hint="请输入QQ："
+        android:paddingLeft="10dp" />
 
     <EditText
         android:id="@+id/et_wechat"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="请输入微信："
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="15dp"
-        android:paddingLeft="10dp"
-        android:background="#DBDBDB"/>
+        android:layout_marginRight="30dp"
+        android:background="#DBDBDB"
+        android:hint="请输入微信："
+        android:paddingLeft="10dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:text="注册"
-        android:layout_gravity="center_horizontal"/>
+        android:text="注册" />
 
 </LinearLayout>

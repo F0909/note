@@ -7,45 +7,45 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="登录"
-            android:textSize="40sp"
-            android:layout_gravity="center_horizontal"/>
+            android:textSize="40sp" />
 
 
         <EditText
-           android:id="@+id/et_tel"
-           android:layout_width="match_parent"
-           android:layout_height="50dp"
-           android:hint="请输入电话号码："
-           android:layout_marginLeft="30dp"
-           android:layout_marginRight="30dp"
-           android:layout_marginTop="20dp"
-           android:paddingLeft="10dp"
-           android:background="#DBDBDB"/>
+            android:id="@+id/et_tel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="#DBDBDB"
+            android:hint="请输入电话号码："
+            android:paddingLeft="10dp" />
 
         <EditText
             android:id="@+id/et_pass"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="请输入密码："
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginTop="10dp"
-            android:paddingLeft="10dp"
-            android:background="#DBDBDB"/>
+            android:layout_marginRight="30dp"
+            android:background="#DBDBDB"
+            android:hint="请输入密码："
+            android:paddingLeft="10dp" />
 
         <RadioButton
             android:id="@+id/rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
             android:text="记住密码"
             tools:ignore="InvalidId" />
 
@@ -53,10 +53,9 @@
             android:id="@+id/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
-            android:text="登录"
-            />
+            android:layout_marginTop="10dp"
+            android:text="登录" />
 
     </LinearLayout>
 
