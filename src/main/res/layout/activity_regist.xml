@@ -2,15 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@mipmap/img">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:text="注册"
-        android:textSize="38sp" />
+        android:layout_marginTop="50dp"
+        android:text="Login"
+        android:textSize="40sp" />
 
 
     <EditText
@@ -18,9 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
-        android:background="#DBDBDB"
         android:hint="请输入用户名："
         android:paddingLeft="10dp" />
 
@@ -31,7 +31,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
-        android:background="#DBDBDB"
         android:hint="请输入密码："
         android:paddingLeft="10dp" />
 
@@ -42,7 +41,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
-        android:background="#DBDBDB"
         android:hint="请输入电话号码："
         android:paddingLeft="10dp" />
 
@@ -53,7 +51,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
-        android:background="#DBDBDB"
         android:hint="请输入QQ："
         android:paddingLeft="10dp" />
 
@@ -64,7 +61,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
-        android:background="#DBDBDB"
         android:hint="请输入微信："
         android:paddingLeft="10dp" />
 
@@ -73,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
+        android:background="@drawable/buttonstyle"
         android:text="注册" />
 
 </LinearLayout>

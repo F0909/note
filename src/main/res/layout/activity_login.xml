@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/img">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="登录"
+            android:text="Welcome"
             android:textSize="40sp" />
 
 
@@ -25,7 +26,6 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
-            android:background="#DBDBDB"
             android:hint="请输入电话号码："
             android:paddingLeft="10dp" />
 
@@ -36,11 +36,10 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
-            android:background="#DBDBDB"
             android:hint="请输入密码："
             android:paddingLeft="10dp" />
 
-        <RadioButton
+        <CheckBox
             android:id="@+id/rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,13 +48,34 @@
             android:text="记住密码"
             tools:ignore="InvalidId" />
 
-        <Button
-            android:id="@+id/btn"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonstyle"
             android:text="登录" />
+
+        <Button
+            android:id="@+id/btn_regist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/buttonstyle"
+            android:text="注册" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
