@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -57,10 +56,18 @@ public class LoginActivity extends AppCompatActivity {
                 login(et_tel.getText().toString(),et_pass.getText().toString());
             }
         });
+        btn_regist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void login(final String tel,final String pass){
-        String url= Constants.LOGIN_URL+"?tel"+tel+"&amp;amp;pass="+pass;
+        String url= Constants.LOGIN_URL+"?tel="+tel+"&pass="+pass;
+
         //创建一个volley请求
         StringRequest stringRequest=new StringRequest(url, new Response.Listener<String>() {
             @Override

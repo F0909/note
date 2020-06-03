@@ -37,6 +37,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:hint="请输入密码："
+            android:inputType="textPassword"
             android:paddingLeft="10dp" />
 
         <CheckBox
