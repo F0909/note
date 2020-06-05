@@ -53,6 +53,14 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this,"电话不允许为空",Toast.LENGTH_SHORT).show();
             return;
         }
+        if (qq==null||qq.equals("")){
+            Toast.makeText(this,"QQ不允许为空",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (wechat==null||wechat.equals("")){
+            Toast.makeText(this,"微信不允许为空",Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (pass1==null||pass1.equals("")){
             Toast.makeText(this,"密码不允许为空",Toast.LENGTH_SHORT).show();
             return;
@@ -65,7 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this,"两次输入的密码不一致，请重新输入",Toast.LENGTH_SHORT).show();
             return;
         }
-        String url= Constants.REGISTER_URL+"?name="+name+"&pass="+pass1+"&tel="+tell;//拼接注册信息请求地址
+        String url= Constants.REGISTER_URL+"?name="+name+"&pass="+pass1+"&tel="+tell+"&qq="+qq+"&wechat="+wechat;//拼接注册信息请求地址
 
         //创建volley请求
         StringRequest request=new StringRequest(url, new Response.Listener<String>() {
