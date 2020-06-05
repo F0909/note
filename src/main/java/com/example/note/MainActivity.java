@@ -4,8 +4,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -20,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.note.activity.NoteActivity;
 import com.example.note.bean.NoteBean;
 import com.example.note.constant.Constants;
 import com.example.note.result.Result;
@@ -42,6 +45,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         lv=findViewById(R.id.lv);
         btn=findViewById(R.id.btn_add);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this, NoteActivity.class);
+                intent.putExtra("type",1);//1代表是新增备忘
+                intent.putExtra("tel",tel);//新增备忘时需要用户tel
+                startActivity(intent);
+            }
+        });
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(MainActivity.this,NoteActivity.class);
+                intent.putExtra("type",2);//2代表查看备忘详情
+                intent.putExtra("id",datas.get(position).getId());//查看备忘时需要备忘id
+                startActivity(intent);
+            }
+        });
 
         requestQueue= Volley.newRequestQueue(this);//初始化请求队列
         tel=getIntent().getStringExtra("tel");//获取上一个页面传递过来的tel
@@ -93,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //服务器数据获取放在onStart中，这样页面每次处于可见状态都会重新回去刷新数据
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -137,10 +159,10 @@ public class MainActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             //将列表项的布局文件转换成View对象
             convertView= LayoutInflater.from(MainActivity.this).inflate(R.layout.item,null);
-            TextView tv_titlt=convertView.findViewById(R.id.tv_title);
+            TextView tv_title=convertView.findViewById(R.id.tv_title);
             TextView tv_content=convertView.findViewById(R.id.tv_content);
 
-            tv_titlt.setText(datas.get(position).getTitle());
+            tv_title.setText(datas.get(position).getTitle());
             tv_content.setText(datas.get(position).getContent());
 
             return convertView;

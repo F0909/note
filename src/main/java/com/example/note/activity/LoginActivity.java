@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -50,17 +52,39 @@ public class LoginActivity extends AppCompatActivity {
         et_tel.setText(tel);
         et_pass.setText(pass);//将之前在SharedPreferences记住的电话和密码展示到输入框中
 
+        //登录按钮监听事件
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 login(et_tel.getText().toString(),et_pass.getText().toString());
             }
         });
+
+        //注册按钮监听事件
         btn_regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        //判断记住密码多选框的状态
+        if (sp.getBoolean("ISCHECK",false)){
+            rb.setChecked(true);//默认是记住密码状态
+            et_tel.setText(sp.getString("tel",""));
+            et_pass.setText(sp.getString("pass",""));
+        }
+
+        //记住密码多选框监听事件
+        rb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (rb.isChecked()){
+                    sp.edit().putBoolean("ISCHECK",true).commit();
+                }else {
+                    sp.edit().putBoolean("ISCHECK",false).commit();
+                }
             }
         });
     }
