@@ -1,5 +1,6 @@
 package com.example.note;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -22,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.note.activity.LoginActivity;
 import com.example.note.activity.NoteActivity;
 import com.example.note.bean.NoteBean;
 import com.example.note.constant.Constants;
@@ -167,5 +170,23 @@ public class MainActivity extends AppCompatActivity {
 
             return convertView;
         }
+    }
+
+    //创建选项菜单的回调
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(1,1,1,"切换账号");
+        return true;
+    }
+
+    //选项菜单的回调
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case 1:
+                Intent intent=new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
