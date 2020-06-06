@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -47,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         requestQueue= Volley.newRequestQueue(this);
 
         sp=getSharedPreferences("name",MODE_PRIVATE);//初始化SharedPreferences
-        String tel=sp.getString("tel","");
+        final String tel=sp.getString("tel","");
         String pass=sp.getString("pass","");//将初始化SharedPreferences中存储的电话和密码取出来
         et_tel.setText(tel);
         et_pass.setText(pass);//将之前在SharedPreferences记住的电话和密码展示到输入框中
@@ -72,8 +71,8 @@ public class LoginActivity extends AppCompatActivity {
         //判断记住密码多选框的状态
         if (sp.getBoolean("ISCHECK",false)){
             rb.setChecked(true);//默认是记住密码状态
-            et_tel.setText(sp.getString("tel",""));
-            et_pass.setText(sp.getString("pass",""));
+            et_tel.setText(sp.getString("tel",null));
+            et_pass.setText(sp.getString("pass",null));
         }
 
         //记住密码多选框监听事件
@@ -81,9 +80,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (rb.isChecked()){
-                    sp.edit().putBoolean("ISCHECK",true).commit();
+                    sp.edit().putString("tel", String.valueOf(et_tel));
+                    sp.edit().putString("pass", String.valueOf(et_pass));
+                    sp.edit().putBoolean("ISCHECK",true);
+                    sp.edit().commit();
                 }else {
-                    sp.edit().putBoolean("ISCHECK",false).commit();
+                    sp.edit().putString("tel", null);
+                    sp.edit().putString("pass", null);
+                    sp.edit().putBoolean("ISCHECK",false);
+                    sp.edit().commit();
                 }
             }
         });

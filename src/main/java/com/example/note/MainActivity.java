@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     String tel;
     ArrayList<NoteBean> datas;//用于存放所有的备忘记录的集合
     MyAdapter myAdapter;//自定义的ListView适配器
+    private boolean isExit;
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
         lv=findViewById(R.id.lv);
         btn=findViewById(R.id.btn_add);
 
+        handler=new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                super.handleMessage(msg);
+                isExit=false;
+            }
+        };
+
+        //新增按钮事件监听器
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //ListView事件监听器
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -113,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                     }).create();
                     alertBuilder.show();
 
-                return false;
+                return true;
             }
         });
     }
@@ -189,4 +204,21 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public boolean onKeyDown(int keyCode,KeyEvent event){
+        if (keyCode==KeyEvent.KEYCODE_BACK){
+            if (!isExit){
+                isExit=true;
+                handler.sendEmptyMessageDelayed(0,2000);
+                Toast.makeText(this,"再按一次退出",Toast.LENGTH_SHORT).show();
+                return false;
+            }else {
+                finish();
+                System.exit(0);
+            }
+        }
+        return super.onKeyDown(keyCode,event);
+    }
+
 }
+
