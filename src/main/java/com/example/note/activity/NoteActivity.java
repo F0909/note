@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class NoteActivity extends AppCompatActivity {
 
     EditText et_title,et_content;
     Button btn_date,btn_time,btn;
+    TextView tv123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,7 @@ public class NoteActivity extends AppCompatActivity {
         btn_date=findViewById(R.id.btn_date);
         btn_time=findViewById(R.id.btn_time);
         btn=findViewById(R.id.btn);
+        tv123=findViewById(R.id.tv123);
 
         //点击日期按钮，弹出日期选择器对话框
         btn_date.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +89,7 @@ public class NoteActivity extends AppCompatActivity {
         });
 
         if (type==1){
+            tv123.setText("新建备忘录");
             btn.setText("保存");
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -94,6 +98,7 @@ public class NoteActivity extends AppCompatActivity {
                 }
             });
         }else if (type==2){
+            tv123.setText("修改备忘录");
             btn.setText("修改");
             getNoteByID();
             btn.setOnClickListener(new View.OnClickListener() {

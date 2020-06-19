@@ -1,6 +1,7 @@
 package com.example.note;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     MyAdapter myAdapter;//自定义的ListView适配器
     private boolean isExit;
     private Handler handler;
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         lv=findViewById(R.id.lv);
         btn=findViewById(R.id.btn_add);
+
+        actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);//添加一个返回箭头
+
 
         handler=new Handler(){
             @Override
@@ -201,8 +207,22 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent=new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
                 break;
+            case android.R.id.home:
+                goBack();
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void goBack(){
+        if (!isExit){
+            isExit=true;
+            handler.sendEmptyMessageDelayed(0,2000);
+            Toast.makeText(this,"再按一次退出",Toast.LENGTH_SHORT).show();
+        }else {
+            finish();
+            System.exit(0);
+        }
     }
 
     public boolean onKeyDown(int keyCode,KeyEvent event){

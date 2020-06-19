@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/img1">
+
+    <TextView
+        android:id="@+id/tv123"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:paddingTop="20dp"
+        android:paddingLeft="25dp"
+        android:textColor="#fff"
+        tools:ignore="InvalidId" />
 
     <EditText
         android:id="@+id/et_title"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="20dp"
         android:textSize="24sp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
